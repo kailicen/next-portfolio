@@ -46,7 +46,7 @@ const About: React.FC = () => {
             <Heading
               maxW="900px"
               m={{ base: "0 10px", md: "0 50px" }}
-              fontSize={{ base: 25, md: 35 }}
+              fontSize={{ base: 22, md: 35 }}
               dangerouslySetInnerHTML={{ __html: about.content.rendered }}
             ></Heading>
           </Flex>
