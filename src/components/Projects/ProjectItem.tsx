@@ -28,7 +28,7 @@ const ProjectItem: React.FC<Props> = ({ project }) => {
   const [loading, setLoading] = useState<boolean>(false);
 
   const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = { light: "white", dark: "gray.700" };
+  const bgColor = { light: "gray.100", dark: "gray.700" };
   const borderColor = { light: "gray.300", dark: "gray.600" };
   const brandColor = { light: "darkturquoise", dark: "turquoise" };
 
@@ -71,6 +71,7 @@ const ProjectItem: React.FC<Props> = ({ project }) => {
           justify="space-between"
           pl={{ base: "0", md: "15px", lg: "100px" }}
           pr={{ base: "0", md: "15px", lg: "150px" }}
+          borderRadius={{ base: "5px" }}
           border="1px solid"
           borderColor={borderColor[colorMode]}
           bg={bgColor[colorMode]}

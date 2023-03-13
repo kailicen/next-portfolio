@@ -14,7 +14,11 @@ const PostLoader: React.FC<PostLoaderProps> = () => {
   const bgColor = { light: "gray.100", dark: "gray.700" };
 
   return (
-    <Stack spacing={6} pt="42px" mt="42px">
+    <Stack
+      spacing={5}
+      mt={{ base: "30px", md: "42px" }}
+      pt={{ base: "30px", md: "42px" }}
+    >
       <Box
         padding="10px 10px"
         boxShadow="lg"
