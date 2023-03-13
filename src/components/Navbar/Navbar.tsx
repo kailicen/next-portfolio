@@ -22,6 +22,7 @@ const Navbar: React.FC = () => {
 
   const modeColor = { light: "white", dark: "gray.800" };
   const bgColor = isHomePage ? "transparent" : modeColor[colorMode];
+  const fullNavBgColor = modeColor[colorMode];
   const imgSrc = { light: "/logo192-black.png", dark: "/logo192-white.png" };
 
   const handleMenuOpen = () => {
@@ -112,7 +113,7 @@ const Navbar: React.FC = () => {
         {/* full screen navbar */}
         {menuState === "open" && (
           <Flex
-            bg={bgColor}
+            bg={fullNavBgColor}
             position="fixed"
             height="100vh"
             width="100vw"
