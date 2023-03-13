@@ -36,7 +36,13 @@ const Projects: React.FC = () => {
 
   return (
     <Flex w="100vw">
-      <Flex direction="column" mt="50px" pt="50px" w="100%" gap={5}>
+      <Flex
+        direction="column"
+        mt={{ base: "30px", md: "42px" }}
+        pt={{ base: "30px", md: "42px" }}
+        w="100%"
+        gap={5}
+      >
         {loading ? (
           <>
             <Skeleton height="290px" />

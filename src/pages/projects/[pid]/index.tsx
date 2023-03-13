@@ -41,7 +41,11 @@ const ProjectPage: React.FC = () => {
       {isLoaded ? (
         <PageContent>
           <>
-            <Flex mt="42px" pt="42px" gap={3}>
+            <Flex
+              mt={{ base: "30px", md: "42px" }}
+              pt={{ base: "30px", md: "42px" }}
+              gap={3}
+            >
               <Flex
                 direction="column"
                 borderRadius="5px"

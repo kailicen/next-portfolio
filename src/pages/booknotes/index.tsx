@@ -30,7 +30,11 @@ const BookNotes: React.FC = () => {
       <PageContent>
         <>
           {isLoaded ? (
-            <Stack mt="42px" pt="42px" spacing={3}>
+            <Stack
+              mt={{ base: "30px", md: "42px" }}
+              pt={{ base: "30px", md: "42px" }}
+              spacing={3}
+            >
               {bookNotes.map((booknote, index) => (
                 <BookNoteItem key={index} booknote={booknote} />
               ))}

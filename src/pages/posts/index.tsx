@@ -105,7 +105,11 @@ const Posts: React.FC = () => {
           {loading ? (
             <PostLoader />
           ) : (
-            <Stack mt="42px" pt="42px" spacing={5}>
+            <Stack
+              mt={{ base: "30px", md: "42px" }}
+              pt={{ base: "30px", md: "42px" }}
+              spacing={5}
+            >
               {posts.map((post, index) => (
                 <PostItem key={index} post={post} />
               ))}

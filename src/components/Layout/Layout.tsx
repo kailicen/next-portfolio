@@ -35,6 +35,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       <main>{children}</main>
       {showButton && (
         <Button
+          bg="turquoise"
+          _hover={{ bg: "darkturquoise" }}
           position="fixed"
           bottom="4"
           right="4"

@@ -59,25 +59,34 @@ const BookNotePage: React.FC = () => {
       <PageContent>
         <>
           {isLoaded ? (
-            <Flex mt="42px" pt="42px" gap={3}>
-              <Flex
-                direction="column"
-                borderRadius="5px"
-                p="10px"
-                width="100%"
-                border="1px solid"
-                borderColor={borderColor[colorMode]}
-                bg={bgColor[colorMode]}
-                className="post-item"
-              >
-                <Heading>{bookNote.title.rendered}</Heading>
-                <Text
-                  dangerouslySetInnerHTML={{
-                    __html: updatedContent,
-                  }}
-                ></Text>
+            <>
+              <Flex display={{ base: "block", md: "none" }} mt="30px" pt="30px">
+                <RightContent page="singleBookNotePage" indexes={indexes} />
               </Flex>
-            </Flex>
+              <Flex
+                mt={{ base: "5px", md: "42px" }}
+                pt={{ base: "5px", md: "42px" }}
+                gap={3}
+              >
+                <Flex
+                  direction="column"
+                  borderRadius="5px"
+                  p="10px"
+                  width="100%"
+                  border="1px solid"
+                  borderColor={borderColor[colorMode]}
+                  bg={bgColor[colorMode]}
+                  className="post-item"
+                >
+                  <Heading>{bookNote.title.rendered}</Heading>
+                  <Text
+                    dangerouslySetInnerHTML={{
+                      __html: updatedContent,
+                    }}
+                  ></Text>
+                </Flex>
+              </Flex>
+            </>
           ) : (
             <h3>Loading...</h3>
           )}
