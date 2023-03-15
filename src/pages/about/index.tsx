@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Divider, Flex, Heading, Link, Text } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
+import Contact from "./Contact";
 
 const About: React.FC = () => {
   const [about, setAbout] = useState<{ content: { rendered: string } }>({
@@ -24,24 +25,7 @@ const About: React.FC = () => {
     <>
       {isLoaded ? (
         <Flex direction="column" height="100vh" justify="space-between">
-          <Flex w="100%" direction="column" align="flex-end">
-            <Flex
-              direction="column"
-              pt="100px"
-              m="0 10px"
-              justify="right"
-              w={{ base: "150px", md: "250px" }}
-            >
-              <Text color="gray.500">Let&apos;s get connected</Text>
-              <Divider mt={2} mb={3} />
-              <Link href="https://www.linkedin.com/in/kaili-cen-1975b4197/">
-                LinkedIn <ExternalLinkIcon mx="2px" />
-              </Link>
-              <Link href="https://medium.com/@kailicen226">
-                Medium <ExternalLinkIcon mx="2px" />
-              </Link>
-            </Flex>
-          </Flex>
+          <Contact />
           <Flex className="post-item">
             <Heading
               maxW="900px"
