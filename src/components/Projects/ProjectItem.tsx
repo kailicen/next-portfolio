@@ -71,7 +71,7 @@ const ProjectItem: React.FC<Props> = ({ project }) => {
           justify="space-between"
           pl={{ base: "0", md: "15px", lg: "100px" }}
           pr={{ base: "0", md: "15px", lg: "150px" }}
-          borderRadius={{ base: "5px" }}
+          borderRadius={{ base: "5px", md: "0" }}
           border="1px solid"
           borderColor={borderColor[colorMode]}
           bg={bgColor[colorMode]}

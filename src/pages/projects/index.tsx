@@ -1,38 +1,39 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import ProjectItem from "@/components/Projects/ProjectItem";
-import {
-  Box,
-  Flex,
-  Skeleton,
-  SkeletonText,
-  Stack,
-  useColorMode,
-} from "@chakra-ui/react";
+import { Box, Button, Flex, Skeleton } from "@chakra-ui/react";
 
 const Projects: React.FC = () => {
   const [projects, setProjects] = useState<[]>([]);
   const [loading, setLoading] = useState<boolean>(false);
-
-  const { colorMode, toggleColorMode } = useColorMode();
-  const bgColor = { light: "gray.100", dark: "gray.700" };
+  const [page, setPage] = useState<number>(1);
+  const [totalPages, setTotalPages] = useState<number>(0);
 
   useEffect(() => {
     const fetchData = async () => {
       setLoading(true);
       try {
-        setLoading(true);
         const res = await axios.get(
-          `https://kailisblog.com/wp-json/wp/v2/projects`
+          `https://kailisblog.com/wp-json/wp/v2/projects?page=${page}`
         );
         setProjects(res.data);
+        setTotalPages(parseInt(res.headers["x-wp-totalpages"]));
       } catch (err) {
         console.log(`error: ${err}`);
       }
       setLoading(false);
     };
     fetchData();
-  }, []);
+    window.scrollTo(0, 0); // scroll to top when page changes
+  }, [page]);
+
+  const handleNextPage = () => {
+    setPage(page + 1);
+  };
+
+  const handlePrevPage = () => {
+    setPage(page - 1);
+  };
 
   return (
     <Flex w="100vw">
@@ -55,6 +56,14 @@ const Projects: React.FC = () => {
               <ProjectItem key={index} project={project} />
             ))}
           </>
+        )}
+        {totalPages > 1 && (
+          <Flex justifyContent="space-between" m={4}>
+            {page > 1 && <Button onClick={handlePrevPage}>Previous</Button>}
+            {page < totalPages && (
+              <Button onClick={handleNextPage}>Next</Button>
+            )}
+          </Flex>
         )}
       </Flex>
     </Flex>
