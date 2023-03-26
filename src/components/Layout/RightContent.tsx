@@ -1,6 +1,7 @@
 import { Box, Flex, Text, Link, useColorMode } from "@chakra-ui/react";
 import { ExternalLinkIcon } from "@chakra-ui/icons";
 import { Link as ReactLink } from "react-scroll";
+import { useEffect, useRef } from "react";
 
 interface RightContentProps {
   page:
@@ -24,6 +25,23 @@ const RightContent: React.FC<RightContentProps> = ({
   const borderColor = { light: "gray.300", dark: "gray.600" };
   const brandColor = { light: "darkturquoise", dark: "turquoise" };
 
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return;
+    const handleScroll = () => {
+      if (container.scrollHeight <= container.offsetHeight) {
+        container.style.setProperty("::-webkit-scrollbar", "display: none;");
+      } else {
+        container.style.removeProperty("::-webkit-scrollbar");
+      }
+    };
+    handleScroll();
+    container.addEventListener("scroll", handleScroll);
+    return () => container.removeEventListener("scroll", handleScroll);
+  }, []);
+
   return (
     <>
       <Box
@@ -33,6 +51,8 @@ const RightContent: React.FC<RightContentProps> = ({
         borderRadius="5px"
         border="1px solid"
         borderColor={borderColor[colorMode]}
+        maxHeight="calc(100vh - 120px)" // add this line
+        overflowY="auto" // use "auto" instead of "scroll" to hide the scrollbar when not needed
       >
         <Flex
           align="center"
