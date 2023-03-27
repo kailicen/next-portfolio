@@ -51,8 +51,6 @@ const RightContent: React.FC<RightContentProps> = ({
         borderRadius="5px"
         border="1px solid"
         borderColor={borderColor[colorMode]}
-        maxHeight="calc(100vh - 120px)" // add this line
-        overflowY="auto" // use "auto" instead of "scroll" to hide the scrollbar when not needed
       >
         <Flex
           align="center"
@@ -78,6 +76,8 @@ const RightContent: React.FC<RightContentProps> = ({
           p={3}
           borderRadius="0px 0px 5px 5px"
           bg={bgColor[colorMode]}
+          maxHeight="calc(100vh - 160px)" // add this line
+          overflowY="auto" // use "auto" instead of "scroll" to hide the scrollbar when not needed
         >
           {page === "postsPage" && (
             <Text fontSize="10pt">

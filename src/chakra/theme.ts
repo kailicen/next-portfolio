@@ -3,6 +3,7 @@ import "@fontsource/open-sans/400.css";
 import "@fontsource/open-sans/700.css";
 import "@fontsource/raleway/500.css";
 import { extendTheme } from "@chakra-ui/react";
+import { useColorMode } from "@chakra-ui/color-mode";
 import { Button } from "./button";
 import { Input } from "./input";
 
@@ -21,23 +22,24 @@ export const theme = extendTheme({
   },
 
   styles: {
-    global: {
+    global: (props: any) => ({
       "::-webkit-scrollbar": {
         width: "8px",
         height: "8px",
-      },
-      "::-webkit-scrollbar-track": {
-        background: "#f1f1f1",
-        borderRadius: "5px",
+        backgroundColor: props.colorMode === "dark" ? "#2D3748" : "#F7FAFC",
       },
       "::-webkit-scrollbar-thumb": {
-        background: "#888",
+        background: props.colorMode === "dark" ? "#CBD5E0" : "#4A5568",
         borderRadius: "5px",
       },
       "::-webkit-scrollbar-thumb:hover": {
-        background: "#555",
+        background: props.colorMode === "dark" ? "#A0AEC0" : "#718096",
       },
-    },
+      "::-webkit-scrollbar-track": {
+        background: props.colorMode === "dark" ? "#4A5568" : "#EDF2F7",
+        borderRadius: "5px",
+      },
+    }),
   },
 });
 
