@@ -24,7 +24,7 @@ const Contact: React.FC = () => {
         </Link>
         <Link
           isExternal
-          href="https://drive.google.com/file/d/1MT68MOd7HWWQPZH3g2HgJYPeQlAkW4fL/view"
+          href="https://drive.google.com/file/d/1MIV2NgqHcArEWchFo4nTqWk4jWLqmOUd/view?usp=share_link/"
         >
           Resume <ExternalLinkIcon mx="2px" />
         </Link>
